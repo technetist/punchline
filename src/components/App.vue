@@ -2,7 +2,11 @@
   <div id="app">
     <h3>Got Jokes?</h3>
     <button class="btn btn-success"
-            @click="initJokes">Get More Jokes
+            @click="initJokes">Get 10 More Jokes
+    </button>
+
+    <button class="btn btn-success"
+            @click="addJoke">Get One More Joke
     </button>
 
     <div class="col-md-12">
@@ -10,6 +14,7 @@
         v-for="(joke, index) in $store.state.jokes"
         :joke="joke"
         :key="index"
+        :index="index"
       />
     </div>
   </div>
@@ -21,7 +26,8 @@
 
   export default {
     methods: mapActions([
-      'initJokes'
+      'initJokes',
+      'addJoke'
     ]),
     components: {
       Joke
